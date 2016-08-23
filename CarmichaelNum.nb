@@ -1,0 +1,200 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      7256,        191]
+NotebookOptionsPosition[      6625,        164]
+NotebookOutlinePosition[      6992,        180]
+CellTagsIndexPosition[      6949,        177]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox[
+  RowBox[{"\:30ab", "\:30fc", "\:30de\:30a4\:30f3\:6570"}],
+  FontSize->24]], "Input",
+ CellChangeTimes->{{3.6715098333582163`*^9, 3.67150986549014*^9}}],
+
+Cell[BoxData[{
+ RowBox[{"Clear", "[", 
+  RowBox[{"CarmichaelList", ",", "x", ",", "i", ",", "a", ",", "b"}], 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Clear", "[", "CarmichaelNum", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"CarmichaelNum", "[", 
+    RowBox[{"a_", ",", "b_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"x", ",", "i", ",", 
+       RowBox[{"CarmichaelList", "=", 
+        RowBox[{"{", "}"}]}]}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"x", "=", "a"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{
+        RowBox[{"x", "=", "a"}], ",", 
+        RowBox[{"x", "\[LessEqual]", "b"}], ",", 
+        RowBox[{"x", "++"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"PrimeQ", "[", "x", "]"}], "\[Equal]", "False"}], ",", 
+           "\[IndentingNewLine]", 
+           RowBox[{
+            RowBox[{"i", "=", "2"}], ";", "\[IndentingNewLine]", 
+            RowBox[{"While", "[", 
+             RowBox[{
+              RowBox[{"i", "\[LessEqual]", 
+               RowBox[{"x", "-", "2"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"Euclid", "[", 
+                   RowBox[{"x", ",", "i"}], "]"}], "\[Equal]", "1"}], ",", 
+                 "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"If", "[", 
+                   RowBox[{
+                    RowBox[{
+                    RowBox[{"ModBinary", "[", 
+                    RowBox[{
+                    RowBox[{"x", "-", "1"}], ",", "i", ",", "x"}], "]"}], 
+                    "\[NotEqual]", "1"}], ",", "\[IndentingNewLine]", 
+                    RowBox[{"Break", "[", "]"}]}], "\[IndentingNewLine]", 
+                   "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";", 
+               "\[IndentingNewLine]", 
+               RowBox[{"i", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+            ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+            RowBox[{"If", "[", 
+             RowBox[{
+              RowBox[{"i", "\[Equal]", 
+               RowBox[{"x", "-", "1"}]}], ",", "\[IndentingNewLine]", 
+              RowBox[{
+               RowBox[{"If", "[", 
+                RowBox[{
+                 RowBox[{
+                  RowBox[{"ModBinary", "[", 
+                   RowBox[{
+                    RowBox[{"x", "-", "1"}], ",", "i", ",", "x"}], "]"}], 
+                  "\[Equal]", "1"}], ",", "\[IndentingNewLine]", 
+                 RowBox[{
+                  RowBox[{"CarmichaelList", "=", 
+                   RowBox[{"Append", "[", 
+                    RowBox[{"CarmichaelList", ",", "x"}], "]"}]}], ";"}]}], 
+                "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+             "]"}], ";"}]}], "\[IndentingNewLine]", "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "CarmichaelList", "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.671179544171745*^9, 3.6711796176992025`*^9}, {
+   3.6711800332833347`*^9, 3.6711800799641027`*^9}, {3.6711801405840473`*^9, 
+   3.671180207183721*^9}, {3.671180258036377*^9, 3.671180276042609*^9}, {
+   3.671181960462922*^9, 3.671182026370921*^9}, {3.671182207058484*^9, 
+   3.6711824500195436`*^9}, {3.6711826086628942`*^9, 3.671182609512759*^9}, {
+   3.671182785500785*^9, 3.6711827872903595`*^9}, {3.6711828343435683`*^9, 
+   3.6711828370336094`*^9}, {3.6711831060412135`*^9, 3.671183131584447*^9}, {
+   3.671183631205106*^9, 3.6711836925442963`*^9}, 3.6711843511780443`*^9, {
+   3.671508484682351*^9, 3.671508780415249*^9}, {3.671508827848267*^9, 
+   3.6715089465693283`*^9}, {3.671509088134356*^9, 3.671509100291394*^9}, {
+   3.6715091389320374`*^9, 3.671509157453306*^9}, {3.671509219494369*^9, 
+   3.671509319835464*^9}, 3.671509356604001*^9, 3.671509637849415*^9, {
+   3.671509826648995*^9, 3.671509831958954*^9}, 3.671510074483749*^9, {
+   3.671510526254113*^9, 3.671510533035974*^9}, {3.671532045586233*^9, 
+   3.671532055769926*^9}, 3.671532232441656*^9, {3.671532303127261*^9, 
+   3.671532346301264*^9}, {3.6715324301193123`*^9, 3.671532433550028*^9}, {
+   3.6715333905655603`*^9, 3.671533414062052*^9}, {3.671534137886549*^9, 
+   3.671534147510418*^9}, {3.6715342449103107`*^9, 3.671534271463851*^9}, {
+   3.671534666932859*^9, 3.671534674976379*^9}, {3.671534721681223*^9, 
+   3.671534735328158*^9}, {3.6715347661512823`*^9, 3.671534844199256*^9}, {
+   3.6715348843796253`*^9, 3.671534892859646*^9}, {3.671534959518812*^9, 
+   3.6715349793004713`*^9}, {3.671535027983972*^9, 3.671535044317903*^9}, {
+   3.671535772043865*^9, 3.671535782441399*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CarmichaelNum", "[", 
+  RowBox[{"2", ",", "1000"}], "]"}]], "Input",
+ CellChangeTimes->{{3.671510210552122*^9, 3.671510222798389*^9}, {
+  3.671510317860649*^9, 3.671510319183844*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", "561", "}"}]], "Output",
+ CellChangeTimes->{{3.671535764600564*^9, 3.6715357884402943`*^9}}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CarmichaelNum", "[", 
+  RowBox[{"5001", ",", "9000"}], "]"}]], "Input",
+ CellChangeTimes->{{3.6715727612655897`*^9, 3.671572779859667*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"6601", ",", "8911"}], "}"}]], "Output",
+ CellChangeTimes->{3.671572782842519*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CarmichaelNum", "[", 
+  RowBox[{"2001", ",", "3000"}], "]"}]], "Input",
+ CellChangeTimes->{{3.671572785580022*^9, 3.67157280175314*^9}}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"2465", ",", "2821"}], "}"}]], "Output",
+ CellChangeTimes->{3.6715728028035917`*^9}]
+}, Open  ]]
+},
+WindowSize->{588, 676},
+WindowMargins->{{Automatic, -2}, {Automatic, 15}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (2015\:5e7410\
+\:670817\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 178, 4, 43, "Input"],
+Cell[739, 26, 4868, 97, 632, "Input"],
+Cell[CellGroupData[{
+Cell[5632, 127, 207, 4, 28, "Input"],
+Cell[5842, 133, 120, 2, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5999, 140, 163, 3, 28, "Input"],
+Cell[6165, 145, 121, 3, 28, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[6323, 153, 160, 3, 28, "Input"],
+Cell[6486, 158, 123, 3, 28, "Output"]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

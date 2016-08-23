@@ -1,0 +1,102 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      3043,         92]
+NotebookOptionsPosition[      2784,         78]
+NotebookOutlinePosition[      3145,         94]
+CellTagsIndexPosition[      3102,         91]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "ModjacECExp", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ModjacECExp", "[", 
+   RowBox[{"a_", ",", "gx_", ",", "gy_", ",", "gz_", ",", "k_", ",", "p_"}], 
+   "]"}], ":=", 
+  RowBox[{"Module", "[", 
+   RowBox[{
+    RowBox[{"{", 
+     RowBox[{"i", ",", "y", ",", "b", ",", "len"}], "}"}], ",", 
+    "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"b", "=", 
+      RowBox[{"IntegerDigits", "[", 
+       RowBox[{"k", ",", "2"}], "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"len", "=", 
+      RowBox[{"Length", "[", "b", "]"}]}], ";", "\[IndentingNewLine]", 
+     RowBox[{"y", "=", 
+      RowBox[{"{", 
+       RowBox[{"gx", ",", "gy", ",", "gz"}], "}"}]}], ";", 
+     "\[IndentingNewLine]", 
+     RowBox[{"For", "[", 
+      RowBox[{
+       RowBox[{"i", "=", "2"}], ",", 
+       RowBox[{"i", "\[LessEqual]", "len"}], ",", 
+       RowBox[{"i", "++"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"y", "=", 
+         RowBox[{"ModjacECDbl", "[", 
+          RowBox[{
+           RowBox[{"y", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], ",", 
+           RowBox[{"y", "[", 
+            RowBox[{"[", "2", "]"}], "]"}], ",", 
+           RowBox[{"y", "[", 
+            RowBox[{"[", "3", "]"}], "]"}], ",", "a", ",", "p"}], "]"}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"b", "[", 
+            RowBox[{"[", "i", "]"}], "]"}], "\[Equal]", "1"}], ",", 
+          "\[IndentingNewLine]", 
+          RowBox[{
+           RowBox[{"y", "=", 
+            RowBox[{"ModjacECAdd", "[", 
+             RowBox[{"gx", ",", "gy", ",", "gz", ",", 
+              RowBox[{"y", "[", 
+               RowBox[{"[", "1", "]"}], "]"}], ",", 
+              RowBox[{"y", "[", 
+               RowBox[{"[", "2", "]"}], "]"}], ",", 
+              RowBox[{"y", "[", 
+               RowBox[{"[", "3", "]"}], "]"}], ",", "a", ",", "p"}], "]"}]}], 
+           ";"}]}], "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "y", "]"}], ";"}]}], "\[IndentingNewLine]", 
+      "]"}], ";"}]}]}]}]}], "Input",
+ CellChangeTimes->{{3.6793693071246676`*^9, 3.6793696118378024`*^9}}]
+},
+WindowSize->{958, 988},
+WindowMargins->{{Automatic, -2780}, {Automatic, 170}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7410\:670819\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 2222, 56, 378, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

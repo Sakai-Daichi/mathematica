@@ -1,0 +1,142 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      4180,        132]
+NotebookOptionsPosition[      3921,        118]
+NotebookOutlinePosition[      4282,        134]
+CellTagsIndexPosition[      4239,        131]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{"Clear", "[", "ModjacECCbl", "]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"ModjacECCbl", "[", 
+    RowBox[{"x1_", ",", "y1_", ",", "z1_", ",", "a_", ",", "p_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"t1", ",", "t2", ",", "t3", ",", "t4", ",", "t5", ",", "t6"}], 
+      "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{"z1", ",", "p"}], "]"}], "\[Equal]", "0"}], " ", "||", " ", 
+         RowBox[{
+          RowBox[{"Mod", "[", 
+           RowBox[{"y1", ",", "p"}], "]"}], "\[Equal]", "0"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"{", 
+          RowBox[{"1", ",", "1", ",", "0"}], "}"}], "]"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"t1", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"x1", "^", "2"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t2", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"y1", "^", "2"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t3", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"t2", "^", "2"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t4", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"z1", "^", "2"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t5", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"2", "*", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"(", 
+              RowBox[{"x1", "+", "t2"}], ")"}], "^", "2"}], "-", "t1", "-", 
+            "t3"}], ")"}]}], ",", "p"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"t6", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"t4", "^", "2"}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t6", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"3", "*", "t1"}], "+", 
+          RowBox[{"a", "*", "t6"}]}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t1", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"t6", "^", "2"}], "-", 
+          RowBox[{"2", "*", "t5"}]}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t3", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"t6", "*", 
+           RowBox[{"(", 
+            RowBox[{"t5", "-", "t1"}], ")"}]}], "-", 
+          RowBox[{"8", "*", "t3"}]}], ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"t2", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{
+           RowBox[{"(", 
+            RowBox[{"y1", "+", "z1"}], ")"}], "^", "2"}], "-", "t2", "-", 
+          "t4"}], ",", "p"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"{", 
+        RowBox[{"t1", ",", "t3", ",", "t2"}], "}"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.679362381791567*^9, 3.6793628006771774`*^9}}]
+},
+WindowSize->{958, 988},
+WindowMargins->{{Automatic, -2780}, {Automatic, 170}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7410\:670819\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 3359, 96, 622, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

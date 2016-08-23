@@ -1,0 +1,142 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      5204,        141]
+NotebookOptionsPosition[      4672,        116]
+NotebookOutlinePosition[      5037,        132]
+CellTagsIndexPosition[      4994,        129]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "PocklingtonJudge", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"PocklingtonJudge", "[", 
+    RowBox[{"n_", ",", "R_", ",", "ps_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"2", "*", "ps"}], "+", "1"}], ")"}], "^", "2"}], 
+         "\[LessEqual]", "n"}], ",", 
+        RowBox[{"Return", "[", "False", "]"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"ModBinary", "[", 
+          RowBox[{
+           RowBox[{"n", "-", "1"}], ",", "2", ",", "n"}], "]"}], "\[Equal]", 
+         "1"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"If", "[", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"Euclid", "[", 
+             RowBox[{
+              RowBox[{
+               RowBox[{"ModBinary", "[", 
+                RowBox[{
+                 RowBox[{"2", "*", "R"}], ",", "2", ",", "n"}], "]"}], "-", 
+               "1"}], ",", "n"}], "]"}], "\[Equal]", "1"}], ",", 
+           RowBox[{"Return", "[", "True", "]"}]}], "]"}], ";"}]}], 
+       "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "False", "]"}], ";"}]}], "\[IndentingNewLine]", 
+    "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.611392248635681*^9, 3.611392248637158*^9}, 
+   3.611392314619116*^9, {3.611392344782393*^9, 3.611392374670356*^9}, {
+   3.61139244438346*^9, 3.611392474803562*^9}, {3.6113925053922977`*^9, 
+   3.61139250720603*^9}, {3.611392559965499*^9, 3.611392624846285*^9}, {
+   3.6113926935391617`*^9, 3.611392733051296*^9}, {3.611393206296508*^9, 
+   3.61139322860804*^9}, {3.611393297762422*^9, 3.611393298247857*^9}, {
+   3.611393332157851*^9, 3.6113933378924427`*^9}, {3.6113934396386347`*^9, 
+   3.611393447919619*^9}, {3.6113935055111103`*^9, 3.611393509295933*^9}, {
+   3.61139355159146*^9, 3.611393605194186*^9}, {3.611393673394195*^9, 
+   3.611393675457876*^9}, {3.611394298354951*^9, 3.611394365112355*^9}, {
+   3.612369516015724*^9, 3.612369521774312*^9}, {3.612369561240489*^9, 
+   3.6123699556166763`*^9}, {3.612369986135355*^9, 3.612370168474429*^9}, {
+   3.6123702956745453`*^9, 3.612370500731637*^9}, {3.615803774307233*^9, 
+   3.615803880837658*^9}, {3.6158039111097927`*^9, 3.6158039950245333`*^9}, {
+   3.615804098444838*^9, 3.615804132282123*^9}, {3.6158041671088963`*^9, 
+   3.615804223355057*^9}, {3.61580427347709*^9, 3.615804275773789*^9}, {
+   3.6158043262786713`*^9, 3.61580435780103*^9}, {3.615804398891634*^9, 
+   3.6158044246660757`*^9}, {3.615811507952066*^9, 3.615811510530243*^9}, 
+   3.616575045104206*^9, {3.616575123965053*^9, 3.616575221587159*^9}, {
+   3.616575260802157*^9, 3.6165754514581347`*^9}, {3.6779789066872663`*^9, 
+   3.677978907206264*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"r", "=", "1"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "ps", "=", 
+   "10320849852634572381493496863690030113134500831331928213711827132261160866\
+545254843945276119266896039021540682811090746152638195220741537377598501676521\
+571"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"While", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"PocklingtonJudge", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"2", "*", "r", "*", "ps"}], "+", "1"}], ",", "r", ",", "ps"}],
+       "]"}], "\[Equal]", "False"}], ",", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{"r", "++"}], ";"}]}], "\[IndentingNewLine]", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"2", "*", 
+   RowBox[{"(", 
+    RowBox[{"r", "+", "1"}], ")"}], "*", "ps"}], "+", "1"}]}], "Input",
+ CellChangeTimes->{{3.677981077252243*^9, 3.6779812439387407`*^9}, {
+  3.6779813477217007`*^9, 3.677981351536046*^9}}],
+
+Cell[BoxData[\
+"46443824336855575716720735886605135509105253740993676961703222095175223899453\
+646797753742536701032175596933072649908357686871878493336918199193257544347069\
+51"], "Output",
+ CellChangeTimes->{3.677981247355448*^9, 3.677981358238454*^9}]
+}, Open  ]]
+},
+WindowSize->{648, 721},
+WindowMargins->{{0, Automatic}, {0, Automatic}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (2015\:5e7410\
+\:670817\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 3032, 64, 255, "Input"],
+Cell[CellGroupData[{
+Cell[3457, 81, 942, 26, 180, "Input"],
+Cell[4402, 109, 254, 4, 63, "Output"]
+}, Open  ]]
+}
+]
+*)
+

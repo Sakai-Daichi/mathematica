@@ -1,0 +1,71 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[      1824,         62]
+NotebookOptionsPosition[      1526,         47]
+NotebookOutlinePosition[      1891,         63]
+CellTagsIndexPosition[      1848,         60]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox["RSA\:6697\:53f7\:6697\:53f7\:5316",
+  FontSize->24]], "Input",
+ CellChangeTimes->{{3.6723940967196417`*^9, 3.672394116468052*^9}}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "RSAEnc", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"RSAEnc", "[", 
+    RowBox[{"M_", ",", "N_", ",", "E_"}], "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"m", ",", "n", ",", "e"}], "}"}], ",", "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"m", "=", "M"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"n", "=", "N"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"e", "=", "E"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"ModBinary", "[", 
+        RowBox[{"e", ",", "m", ",", "n"}], "]"}], "]"}], ";"}]}], 
+    "\[IndentingNewLine]", "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.67239390836867*^9, 3.672394031108111*^9}, 
+   3.672394143683744*^9}]
+},
+WindowSize->{808, 623},
+WindowMargins->{{4, Automatic}, {Automatic, 4}},
+FrontEndVersion->"10.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (2015\:5e7410\
+\:670817\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 155, 3, 43, "Input"],
+Cell[716, 25, 806, 20, 206, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)

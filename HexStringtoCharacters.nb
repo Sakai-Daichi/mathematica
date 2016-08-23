@@ -1,0 +1,109 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[      4210,        108]
+NotebookOptionsPosition[      3798,         87]
+NotebookOutlinePosition[      4154,        103]
+CellTagsIndexPosition[      4111,        100]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Clear", "[", "HexStringtoCharacters", "]"}], ";"}], "\n", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"HexStringtoCharacters", "[", "hexstring_", "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"c", ",", "clen", ",", "hexdata", ",", "outdata"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"clen", "=", 
+       RowBox[{"StringLength", "[", "hexstring", "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"If", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"BitAnd", "[", 
+          RowBox[{"clen", ",", "1"}], "]"}], "\[Equal]", "1"}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hexdata", "=", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"hexstring", ",", 
+            RowBox[{"{", "1", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+         RowBox[{"outdata", "=", 
+          RowBox[{"FromCharacterCode", "[", 
+           RowBox[{"FromDigits", "[", 
+            RowBox[{"hexdata", ",", "16"}], "]"}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"c", "=", "2"}]}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"outdata", "=", "\"\<\>\""}], ";", "\[IndentingNewLine]", 
+         RowBox[{"c", "=", "1"}]}]}], "\[IndentingNewLine]", "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"For", "[", 
+       RowBox[{",", 
+        RowBox[{"c", "\[LessEqual]", "clen"}], ",", 
+        RowBox[{"c", "+=", "2"}], ",", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"hexdata", "=", 
+          RowBox[{"StringTake", "[", 
+           RowBox[{"hexstring", ",", 
+            RowBox[{"{", 
+             RowBox[{"c", ",", 
+              RowBox[{"c", "+", "1"}]}], "}"}]}], "]"}]}], ";", 
+         "\[IndentingNewLine]", 
+         RowBox[{"outdata", "=", 
+          RowBox[{"outdata", "<>", 
+           RowBox[{"FromCharacterCode", "[", 
+            RowBox[{"FromDigits", "[", 
+             RowBox[{"hexdata", ",", "16"}], "]"}], "]"}]}]}]}]}], "]"}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", "outdata", "]"}], ";"}]}], "\[IndentingNewLine]",
+     "]"}]}], ";"}]}], "Input",
+ CellChangeTimes->{{3.611392248635681*^9, 3.611392248637158*^9}, 
+   3.611392314619116*^9, {3.611392344782393*^9, 3.611392374670356*^9}, {
+   3.61139244438346*^9, 3.611392474803562*^9}, {3.6113925053922977`*^9, 
+   3.61139250720603*^9}, {3.611392559965499*^9, 3.611392624846285*^9}, {
+   3.6113926935391617`*^9, 3.611392733051296*^9}, {3.611393206296508*^9, 
+   3.61139322860804*^9}, {3.611393297762422*^9, 3.611393298247857*^9}, {
+   3.611393332157851*^9, 3.6113933378924427`*^9}, {3.6113934396386347`*^9, 
+   3.611393447919619*^9}, {3.6113935055111103`*^9, 3.611393509295933*^9}, {
+   3.61139355159146*^9, 3.611393605194186*^9}, {3.611393673394195*^9, 
+   3.611393675457876*^9}, {3.611394298354951*^9, 3.611394365112355*^9}, {
+   3.6124444594453287`*^9, 3.612444506682475*^9}, {3.61244453726824*^9, 
+   3.6124445524030952`*^9}, {3.61247909281553*^9, 3.612479093980741*^9}, {
+   3.614088990579503*^9, 3.6140890538993397`*^9}, {3.614089683615587*^9, 
+   3.614089711190044*^9}, {3.6140943209453907`*^9, 3.614094368563006*^9}, {
+   3.614158214347576*^9, 3.614158215106103*^9}, {3.6791238440916443`*^9, 
+   3.6791238905771713`*^9}, {3.6792022488856993`*^9, 3.679202252110991*^9}, 
+   3.6792042689974966`*^9}]
+},
+WindowSize->{766, 772},
+WindowMargins->{{Automatic, -7}, {Automatic, 0}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7410\:670819\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 3394, 72, 492, "Input"]
+}
+]
+*)
+

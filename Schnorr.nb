@@ -1,0 +1,318 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     11267,        309]
+NotebookOptionsPosition[     10817,        290]
+NotebookOutlinePosition[     11175,        306]
+CellTagsIndexPosition[     11132,        303]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ StyleBox["Schnorr\:7f72\:540d",
+  FontSize->24]], "Input",
+ CellChangeTimes->{{3.677110027699649*^9, 3.677110040735079*^9}, 
+   3.677110077440282*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"SchnoroKeyGen", "[", 
+     RowBox[{"g_", ",", "x_", ",", "p_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"Return", "[", 
+        RowBox[{"ModBinary", "[", 
+         RowBox[{"x", ",", 
+          RowBox[{"Inv", "[", 
+           RowBox[{"g", ",", "p"}], "]"}], ",", "p"}], "]"}], "]"}], ";"}]}], 
+     "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"SchnorrSign", "[", 
+    RowBox[{"m_", ",", "x_", ",", "g_", ",", "l_", ",", "p_", ",", "r_"}], 
+    "]"}], ":=", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"u", ",", "e", ",", "v", ",", "pLen"}], "}"}], ",", 
+     "\[IndentingNewLine]", 
+     RowBox[{
+      RowBox[{"pLen", "=", 
+       RowBox[{"Ceiling", "[", 
+        RowBox[{
+         RowBox[{"BitLength", "[", "p", "]"}], "/", "8"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"u", "=", 
+       RowBox[{"ModBinary", "[", 
+        RowBox[{"r", ",", "g", ",", "p"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"e", "=", 
+       RowBox[{"Hash", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"HexStringtoCharacters", "[", 
+           RowBox[{"IntegerString", "[", 
+            RowBox[{"u", ",", "16", ",", 
+             RowBox[{"2", "*", "pLen"}]}], "]"}], "]"}], "<>", "m"}], ",", 
+         "\"\<SHA1\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"v", "=", 
+       RowBox[{"Mod", "[", 
+        RowBox[{
+         RowBox[{"r", "+", 
+          RowBox[{"x", "*", "e"}]}], ",", "l"}], "]"}]}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"Return", "[", 
+       RowBox[{"{", 
+        RowBox[{"u", ",", "v"}], "}"}], "]"}], ";"}]}], "\[IndentingNewLine]",
+     "]"}]}], ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.677109909143203*^9, 3.677110018721051*^9}, {
+   3.677110081528801*^9, 3.677110457344339*^9}, {3.677110499286707*^9, 
+   3.677110740019471*^9}, {3.677110833216413*^9, 3.677110834833062*^9}, {
+   3.679124729252317*^9, 3.679124729505639*^9}, 3.6791247831435747`*^9, {
+   3.679124979226129*^9, 3.679124981408392*^9}, {3.6792020651184177`*^9, 
+   3.679202065914979*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"SchnorrVerify", "[", 
+     RowBox[{"sig_", ",", "m_", ",", "y_", ",", "g_", ",", "p_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"u", ",", "e", ",", "v", ",", "ee", ",", "pLen"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"pLen", "=", 
+        RowBox[{"Ceiling", "[", 
+         RowBox[{
+          RowBox[{"BitLength", "[", "p", "]"}], "/", "8"}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"e", "=", 
+        RowBox[{"sig", "[", 
+         RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"v", "=", 
+        RowBox[{"sig", "[", 
+         RowBox[{"[", "2", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"u", "=", 
+        RowBox[{"Mod", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"ModBinary", "[", 
+            RowBox[{"v", ",", "g", ",", "p"}], "]"}], "*", 
+           RowBox[{"ModBinary", "[", 
+            RowBox[{"e", ",", "y", ",", "p"}], "]"}]}], ",", "p"}], "]"}]}], 
+       ";", "\n", 
+       RowBox[{"ee", "=", 
+        RowBox[{"Hash", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{"HexStringtoCharacters", "[", 
+            RowBox[{"IntegerString", "[", 
+             RowBox[{"u", ",", "16", ",", 
+              RowBox[{"2", "*", "pLen"}]}], "]"}], "]"}], "<>", "m"}], ",", 
+          "\"\<SHA1\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+       RowBox[{"If", "[", 
+        RowBox[{
+         RowBox[{"e", "\[Equal]", "ee"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "True", "]"}], ",", "\[IndentingNewLine]", 
+         RowBox[{"Return", "[", "False", "]"}]}], "\[IndentingNewLine]", 
+        "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.679124785304021*^9, 3.679124791347535*^9}, {
+  3.679124922240837*^9, 3.6791249674248*^9}}],
+
+Cell[BoxData[
+ StyleBox[
+  RowBox[{
+  "Schnorr\:30d1\:30e9\:30e1", "\:30fc", 
+   "\:30bf\:751f\:6210\:30d7\:30ed\:30b0\:30e9\:30e0"}],
+  FontSize->24]], "Input",
+ CellChangeTimes->{{3.6771109041051064`*^9, 3.6771109536528263`*^9}}],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"SchnorrParameterGen", "[", 
+     RowBox[{"pBitLen_", ",", "lBitLen_"}], "]"}], ":=", 
+    RowBox[{"Module", "[", 
+     RowBox[{
+      RowBox[{"{", 
+       RowBox[{"p", ",", "l", ",", "g", ",", "r"}], "}"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{
+       RowBox[{"l", "=", 
+        RowBox[{"FermatPrimeGen", "[", "lBitLen", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"r", "=", 
+        RowBox[{"BitOr", "[", 
+         RowBox[{
+          RowBox[{"Random", "[", 
+           RowBox[{"Integer", ",", 
+            RowBox[{
+             RowBox[{"2", "^", 
+              RowBox[{"(", 
+               RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}], "-", 
+             "1"}]}], "]"}], ",", 
+          RowBox[{"2", "^", 
+           RowBox[{"(", 
+            RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}]}], "]"}]}],
+        ";", "\[IndentingNewLine]", 
+       RowBox[{"p", "=", 
+        RowBox[{
+         RowBox[{"r", "*", "l"}], "+", "1"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"BitLength", "[", "p", "]"}], "\[NotEqual]", "pBitLen"}], 
+         ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"r", "=", 
+           RowBox[{"BitOr", "[", 
+            RowBox[{
+             RowBox[{"Random", "[", 
+              RowBox[{"Integer", ",", 
+               RowBox[{
+                RowBox[{"2", "^", 
+                 RowBox[{"(", 
+                  RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}], "-",
+                 "1"}]}], "]"}], ",", 
+             RowBox[{"2", "^", 
+              RowBox[{"(", 
+               RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"p", "=", 
+           RowBox[{
+            RowBox[{"r", "*", "l"}], "+", "1"}]}], ";"}]}], 
+        "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+       RowBox[{"While", "[", 
+        RowBox[{
+         RowBox[{"!", 
+          RowBox[{"PrimeQ", "[", "p", "]"}]}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"r", "=", 
+           RowBox[{"BitOr", "[", 
+            RowBox[{
+             RowBox[{"Random", "[", 
+              RowBox[{"Integer", ",", 
+               RowBox[{
+                RowBox[{"2", "^", 
+                 RowBox[{"(", 
+                  RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}], "-",
+                 "1"}]}], "]"}], ",", 
+             RowBox[{"2", "^", 
+              RowBox[{"(", 
+               RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}]}], 
+            "]"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"p", "=", 
+           RowBox[{
+            RowBox[{"r", "*", "l"}], "+", "1"}]}], ";", "\[IndentingNewLine]", 
+          RowBox[{"While", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"BitLength", "[", "p", "]"}], "\[NotEqual]", "pBitLen"}],
+             ",", "\[IndentingNewLine]", 
+            RowBox[{
+             RowBox[{"r", "=", 
+              RowBox[{"BitOr", "[", 
+               RowBox[{
+                RowBox[{"Random", "[", 
+                 RowBox[{"Integer", ",", 
+                  RowBox[{
+                   RowBox[{"2", "^", 
+                    RowBox[{"(", 
+                    RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}], 
+                   "-", "1"}]}], "]"}], ",", 
+                RowBox[{"2", "^", 
+                 RowBox[{"(", 
+                  RowBox[{"pBitLen", "-", "lBitLen", "-", "1"}], ")"}]}]}], 
+               "]"}]}], ";", "\[IndentingNewLine]", 
+             RowBox[{"p", "=", 
+              RowBox[{
+               RowBox[{"r", "*", "l"}], "+", "1"}]}], ";"}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+        "]"}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+       RowBox[{"For", "[", 
+        RowBox[{
+         RowBox[{"g", "=", "2"}], ",", 
+         RowBox[{"g", "\[LessEqual]", 
+          RowBox[{"p", "-", "1"}]}], ",", 
+         RowBox[{"g", "++"}], ",", "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"ModBinary", "[", 
+              RowBox[{"l", ",", "g", ",", "p"}], "]"}], "\[Equal]", "1"}], 
+            ",", "\[IndentingNewLine]", 
+            RowBox[{"Return", "[", 
+             RowBox[{"{", 
+              RowBox[{"p", ",", "g", ",", "l"}], "}"}], "]"}]}], 
+           "\[IndentingNewLine]", "]"}], ";", "\[IndentingNewLine]", 
+          RowBox[{"g", "=", 
+           RowBox[{"ModBinary", "[", 
+            RowBox[{"r", ",", "g", ",", "p"}], "]"}]}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"g", "\[NotEqual]", "1"}], ",", "\[IndentingNewLine]", 
+            RowBox[{"Return", "[", 
+             RowBox[{"{", 
+              RowBox[{"p", ",", "g", ",", "l"}], "}"}], "]"}]}], 
+           "\[IndentingNewLine]", "]"}], ";"}]}], "\[IndentingNewLine]", 
+        "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}]], "Input",
+ CellChangeTimes->{{3.677110846464024*^9, 3.677110850679421*^9}, {
+   3.677110966884861*^9, 3.677111148362804*^9}, {3.6771112126451*^9, 
+   3.677111690752531*^9}, {3.6791273066988173`*^9, 3.679127309416194*^9}, 
+   3.679127834738638*^9}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.679201841879163*^9, 3.679201841882152*^9}}]
+},
+WindowSize->{958, 988},
+WindowMargins->{{309, Automatic}, {Automatic, 38}},
+FrontEndVersion->"10.3 for Microsoft Windows (64-bit) (2015\:5e7410\:670819\
+\:65e5)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 165, 4, 42, "Input"],
+Cell[726, 26, 2346, 61, 398, "Input"],
+Cell[3075, 89, 1965, 49, 378, "Input"],
+Cell[5043, 140, 231, 6, 42, "Input"],
+Cell[5277, 148, 5441, 137, 826, "Input"],
+Cell[10721, 287, 92, 1, 31, "Input"]
+}
+]
+*)
+
+(* End of internal cache information *)
