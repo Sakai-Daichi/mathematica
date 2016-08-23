@@ -1,1 +1,1 @@
-# mathematica
+Seccapで作成したmathematicaファイル
